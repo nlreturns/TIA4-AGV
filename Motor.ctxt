@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=left\ right
+comment0.target=Motor(int,\ int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Motor\r\n
+comment1.params=speed
+comment1.target=void\ setLeft(int)
+comment2.params=speed
+comment2.target=void\ setRight(int)
+numComments=3
