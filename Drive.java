@@ -1,11 +1,3 @@
-
-/**
- * Write a description of class Drive here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-
 import TI.*;
 
 public final class Drive{
@@ -91,18 +83,59 @@ public final class Drive{
         }
         
     }
-    
-    static void rotateRight(){
-        
-        motor.setLeft(1200);
-        motor.setRight(1200);
-        
+     public void draaiR45()
+  {
+            motor.setLeft (1550);
+            motor.setRight (1550);
+            BoeBot.wait (370);
+            motor.setLeft (1500);
+            motor.setRight (1500);
+            BoeBot.wait (370);
+  }
+  public void draaiR90()
+  {
+            motor.setLeft (1550);
+            motor.setRight (1550);
+            BoeBot.wait (740);
+            motor.setLeft (1500);
+            motor.setRight (1500);
+            BoeBot.wait (740);
     }
-    
-    static void rotateLeft(){
-        
-        motor.setLeft(1700);
-        motor.setRight(1700);
-        
+  public void draaiR180()
+  {
+            motor.setLeft (1550);
+            motor.setRight (1550);
+            BoeBot.wait (1480);
+            motor.setLeft (1500);
+            motor.setRight (1500);
+            BoeBot.wait (1480);
     }
+     public void draaiL45()
+  {
+            motor.setLeft (1550);
+            motor.setRight (1550);
+            BoeBot.wait (370);
+            motor.setLeft (1500);
+            motor.setRight (1500);
+            BoeBot.wait (370);
+  }
+  public void draaiL90()
+  {
+            motor.setLeft (1550);
+            motor.setRight (1550);
+            BoeBot.wait (740);
+            motor.setLeft (1500);
+            motor.setRight (1500);
+            BoeBot.wait (740);
+    }
+  public void draaiL180()
+  {
+            motor.setLeft (1550);
+            motor.setRight (1550);
+            BoeBot.wait (1480);
+            motor.setLeft (1500);
+            motor.setRight (1500);
+            BoeBot.wait (1480);
+    }
+
 }
