@@ -1,33 +1,46 @@
-
-/**
- * Write a description of class Controller here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import TI.*;
 public class Controller
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Controller
-     */
-    public Controller()
+  
+    static int signal;
+   
+    public static void main (String[] args)
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+        System.out.println("luisteren");
+        while(true)
+        {
+            int pulseLen = BoeBot.pulseIn(13, false, 6000);
+    
+            
+            if(pulseLen > 2000)
+            {
+                int lengtes[] = new int[12];
+                for(int i = 0; i < 12; i++){
+                    lengtes[i] = BoeBot.pulseIn(13, false, 2000);
+                }
+                
+                for(int i = 0; i < 12; i++){
+                    
+                    int j = 11 - i;
+                    
+                    // loop if higher than 1000
+                    // 1 << i
+                    if(lengtes[j] > 1000){
+                        signal = signal | 1<<i;
+                    }
+                }
+                
+                System.out.println("Signal = " + signal);
+                
+                getKnop();
+                signal = 0;
+            }
+            BoeBot.wait(1);
+        }
+    }     
+    
+    public static int getKnop()
     {
-        // put your code here
-        return x + y;
+        return signal;
     }
 }

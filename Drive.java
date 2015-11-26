@@ -11,7 +11,7 @@ import TI.*;
 public final class Drive{
     
     static Motor motor;
-    private int currentSpeedLeft = 0, currentSpeedRight = 0;
+    public int currentSpeedLeft = 0, currentSpeedRight = 0;
     
     public Drive(int left, int right){
         
@@ -19,7 +19,7 @@ public final class Drive{
         
     }
     
-    static void forward(){
+    public void forward(){
         
         currentSpeedLeft = 1700;
         currentSpeedRight = 1300;
@@ -28,7 +28,7 @@ public final class Drive{
         
     }
     
-    static void backward(){
+    public void backward(){
         
         currentSpeedLeft = 1300;
         currentSpeedRight = 1700;
@@ -37,7 +37,7 @@ public final class Drive{
         
     }
     
-    static void fastBrake(){
+    public void fastBrake(){
         
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
@@ -46,7 +46,7 @@ public final class Drive{
         
     }
     
-    static void slowForward(){
+    public void slowForward(){
         
         for(int i = 0; i < 100; i++) {
             currentSpeedLeft++;
@@ -58,7 +58,7 @@ public final class Drive{
         
     }
     
-    static void slowBackward(){
+    public void slowBackward(){
         
         for(int i = 0; i < 100; i++) {
             currentSpeedLeft--;
@@ -70,7 +70,7 @@ public final class Drive{
         
     }
     
-    static void slowBreak(){
+    public void slowBreak(){
         
         if((currentSpeedLeft > 1500) && (currentSpeedRight < 1500)){
             for(int i = 0; i < (currentSpeedLeft - 1500); i++){
@@ -92,14 +92,14 @@ public final class Drive{
         
     }
     
-    static void rotateRight(){
+    public void rotateRight(){
         
         motor.setLeft(1200);
         motor.setRight(1200);
         
     }
     
-    static void rotateLeft(){
+    public void rotateLeft(){
         
         motor.setLeft(1700);
         motor.setRight(1700);
