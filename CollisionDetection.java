@@ -7,24 +7,11 @@
  */
 public class CollisionDetection{
     
+    public Antenna antenna;
+    public Ultrasoon ultrasoon;
     
-    //public Ultrasone ultrasone;
-    
-    public CollisionDetection(int antennaPin){
-        //antenna = new Antenna(antennaPin);
+    public CollisionDetection(int ultrasoonInput, int ultrasoonOutput, int leftAntenna, int rightAntenna){
+        ultrasoon = new Ultrasoon(ultrasoonInput, ultrasoonOutput);
+        antenna = new Antenna(leftAntenna, rightAntenna);
     }
-    
-    public static void main(String[] args){
-        Antenna antenna = new Antenna(7);
-        
-        while(true){
-            
-            if(antenna.tooClose(antenna.getPulse())){
-                Drive.stop();
-            }
-            
-        }
-        
-    }
-    
 }

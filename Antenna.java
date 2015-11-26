@@ -10,22 +10,11 @@ import TI.*;
 
 public class Antenna{
     
-    public int pin;
+    public int leftAntenna, rightAntenna;
     
-    public Antenna(int pin){
-        this.pin = pin;
-    }
-    
-    public int getPulse(){
-        return BoeBot.pulseIn(pin, true, 10000);
-    }
-    
-    public boolean tooClose(int pulse){
-        if(pulse <= 700){
-            return true;
-        }else{
-            return false;
-        }
+    public Antenna(int left, int right){
+        this.leftAntenna = left;
+        this.rightAntenna = right;
     }
     
 }

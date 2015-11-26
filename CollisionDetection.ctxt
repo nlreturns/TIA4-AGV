@@ -1,6 +1,4 @@
 #BlueJ class context
-comment0.params=antennaPin
-comment0.target=CollisionDetection(int)
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment0.params=ultrasoonInput\ ultrasoonOutput\ leftAntenna\ rightAntenna
+comment0.target=CollisionDetection(int,\ int,\ int,\ int)
+numComments=1

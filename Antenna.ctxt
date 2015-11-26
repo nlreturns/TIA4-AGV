@@ -1,8 +1,4 @@
 #BlueJ class context
-comment0.params=pin
-comment0.target=Antenna(int)
-comment1.params=
-comment1.target=int\ getPulse()
-comment2.params=pulse
-comment2.target=boolean\ tooClose(int)
-numComments=3
+comment0.params=left\ right
+comment0.target=Antenna(int,\ int)
+numComments=1
