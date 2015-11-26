@@ -1,4 +1,8 @@
 #BlueJ class context
 comment0.params=left\ right
 comment0.target=Antenna(int,\ int)
-numComments=1
+comment1.params=
+comment1.target=boolean\ hitLeft()
+comment2.params=
+comment2.target=boolean\ hitRight()
+numComments=3

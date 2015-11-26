@@ -17,4 +17,18 @@ public class Antenna{
         this.rightAntenna = right;
     }
     
+    public boolean hitLeft(){
+        if(BoeBot.digitalRead(leftAntenna) == false)
+            return true;
+        
+        return false;
+    }
+    
+    public boolean hitRight(){
+        if(BoeBot.digitalRead(rightAntenna) == false)
+            return true;
+        
+        return false;
+    }
+    
 }

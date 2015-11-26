@@ -18,10 +18,19 @@ public class Ultrasoon{
     }
     
     public int getPulse(){
+        
+        BoeBot.digitalWrite(pinInput,true);
+        BoeBot.wait(1);
+        BoeBot.digitalWrite(pinInput,false);
+        
         return BoeBot.pulseIn(pinOutput, true, 10000);
     }
     
-    public boolean tooClose(int pulse){
+    public boolean tooClose(){
+        int pulse = getPulse();
+        
+        System.out.println(pulse);
+        
         if(pulse <= 700){
             return true;
         }else{
