@@ -29,7 +29,7 @@ public class Ultrasoon{
     public boolean tooClose(){
         int pulse = getPulse();
         
-        if(pulse <= 700){
+        if(pulse <= 2300 && pulse >= 0){
             return true;
         }else{
             return false;
