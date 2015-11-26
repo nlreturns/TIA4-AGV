@@ -48,7 +48,7 @@ public final class Drive{
     
     static void slowForward(){
         
-        for(int i = 0; i < 200; i++) {
+        for(int i = 0; i < 100; i++) {
             currentSpeedLeft++;
             currentSpeedRight--;
             motor.setLeft(currentSpeedLeft);
@@ -60,7 +60,7 @@ public final class Drive{
     
     static void slowBackward(){
         
-        for(int i = 0; i < 200; i++) {
+        for(int i = 0; i < 100; i++) {
             currentSpeedLeft--;
             currentSpeedRight++;
             motor.setLeft(currentSpeedLeft);
@@ -73,7 +73,7 @@ public final class Drive{
     static void slowBreak(){
         
         if((currentSpeedLeft > 1500) && (currentSpeedRight < 1500)){
-            for(int i = 0; i < 200; i++){
+            for(int i = 0; i < (currentSpeedLeft - 1500); i++){
                 currentSpeedLeft--;
                 currentSpeedRight++;
                 motor.setLeft(currentSpeedLeft);
@@ -81,7 +81,7 @@ public final class Drive{
                 BoeBot.wait(10);
             }
         } else {
-            for(int i = 0; i < 200; i++){
+            for(int i = 0; i < (currentSpeedRight - 1500); i++){
                 currentSpeedLeft++;
                 currentSpeedRight--;
                 motor.setLeft(currentSpeedLeft);
