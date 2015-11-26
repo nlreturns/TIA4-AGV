@@ -17,6 +17,12 @@ public class Antenna{
         this.rightAntenna = right;
     }
     
+    /**
+     * Function hitLeft()
+     * 
+     * returns true if an object has been hit
+     * with the left antenna
+     */
     public boolean hitLeft(){
         if(BoeBot.digitalRead(leftAntenna) == false)
             return true;
@@ -24,6 +30,12 @@ public class Antenna{
         return false;
     }
     
+    /**
+     * Function hitRight()
+     * 
+     * returns true if an object has been hit
+     * with the right antenna
+     */
     public boolean hitRight(){
         if(BoeBot.digitalRead(rightAntenna) == false)
             return true;

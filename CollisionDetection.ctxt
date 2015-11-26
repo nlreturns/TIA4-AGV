@@ -1,4 +1,5 @@
 #BlueJ class context
 comment0.params=ultrasoonInput\ ultrasoonOutput\ leftAntenna\ rightAntenna
 comment0.target=CollisionDetection(int,\ int,\ int,\ int)
+comment0.text=\r\n\ Constructor\ sets\ the\ pins\ on\ antenna\ and\ ultrasoon\r\n
 numComments=1

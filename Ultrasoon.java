@@ -29,8 +29,6 @@ public class Ultrasoon{
     public boolean tooClose(){
         int pulse = getPulse();
         
-        System.out.println(pulse);
-        
         if(pulse <= 700){
             return true;
         }else{
