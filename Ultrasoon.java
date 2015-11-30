@@ -30,8 +30,16 @@ public class Ultrasoon{
         int pulse = getPulse();
         
         if(pulse <= 2300 && pulse >= 0){
+            BoeBot.rgbSet(0, 255,0,0);
+            BoeBot.rgbSet(1, 255,0,0);
+            BoeBot.rgbSet(2, 255,0,0);
+            BoeBot.rgbShow();
             return true;
         }else{
+            BoeBot.rgbSet(0, 0,0,0);
+            BoeBot.rgbSet(1, 0,0,0);
+            BoeBot.rgbSet(2, 0,0,0);
+            BoeBot.rgbShow();
             return false;
         }
     }

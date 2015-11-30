@@ -13,7 +13,7 @@ public class Demo1
     public static void main (String[] args){
         
         // set all the pins
-        int boombox = 4;
+        //int boombox = 4;
         int ultrasoonInput = 6;
         int ultrasoonOutput = 7;
         int rightSensor = 8;
@@ -46,10 +46,10 @@ public class Demo1
                     case 2192:  drive.slowBackward();
                                 break;
                     // vol+
-                    case 1168:  drive.draaiR45();
+                    case 1168:  drive.draaiL45();
                                 break;
                     // vol-
-                    case 3216:  drive.draaiL45();
+                    case 3216:  drive.draaiR45();
                                 break;
                     // power button
                     case 2704:  drive.stop();
@@ -79,15 +79,22 @@ public class Demo1
             if(collision.antenna.hitLeft()){   
                 drive.fastBrake();
                 System.out.println("Left hit");
-                BoeBot.freqOut(boombox, 1000, 100);
-                BoeBot.freqOut(boombox, 2000, 100);
+                
+                //BoeBot.freqOut(boombox, 1000, 100);
+                //BoeBot.freqOut(boombox, 2000, 100);
+                
+                drive.draaiR90();
+                
             }
             if(collision.antenna.hitRight()){
                 drive.fastBrake();
                 System.out.println("Right hit");
                 
-                BoeBot.freqOut(boombox, 1000, 100);
-                BoeBot.freqOut(boombox, 2000, 100);
+                //BoeBot.freqOut(boombox, 1000, 100);
+                //BoeBot.freqOut(boombox, 2000, 100);
+                
+                drive.draaiL90();
+                
             }
             
             //Ultrasone code
@@ -98,9 +105,6 @@ public class Demo1
             }else{
                 //drive.forward();
             }
-            
-            
-            
             
             BoeBot.wait(1);
     
