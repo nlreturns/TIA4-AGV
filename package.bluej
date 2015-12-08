@@ -23,10 +23,19 @@ dependency7.type=UsesDependency
 dependency8.from=Demo1
 dependency8.to=Remote
 dependency8.type=UsesDependency
+<<<<<<< HEAD
 package.editor.height=603
 package.editor.width=1158
 package.editor.x=-8
 package.editor.y=-8
+=======
+objectbench.height=100
+objectbench.width=683
+package.editor.height=529
+package.editor.width=890
+package.editor.x=0
+package.editor.y=2
+>>>>>>> origin/master
 package.numDependencies=8
 package.numTargets=11
 package.showExtends=true
@@ -41,6 +50,7 @@ target1.name=CollisionDetection
 target1.naviview.expanded=false
 target1.showInterface=false
 target1.type=ClassTarget
+<<<<<<< HEAD
 target1.width=130
 target1.x=520
 target1.y=230
@@ -48,11 +58,22 @@ target10.editor.height=700
 target10.editor.width=900
 target10.editor.x=32
 target10.editor.y=12
+=======
+target1.typeParameters=
+target1.width=80
+target1.x=70
+target1.y=80
+target10.editor.height=728
+target10.editor.width=683
+target10.editor.x=0
+target10.editor.y=0
+>>>>>>> origin/master
 target10.height=50
 target10.name=Notification
 target10.naviview.expanded=false
 target10.showInterface=false
 target10.type=ClassTarget
+<<<<<<< HEAD
 target10.width=90
 target10.x=170
 target10.y=280
@@ -72,11 +93,22 @@ target2.editor.height=776
 target2.editor.width=1296
 target2.editor.x=-8
 target2.editor.y=-8
+=======
+target10.typeParameters=
+target10.width=80
+target10.x=420
+target10.y=370
+target2.editor.height=728
+target2.editor.width=683
+target2.editor.x=0
+target2.editor.y=0
+>>>>>>> origin/master
 target2.height=50
 target2.name=Demo1
 target2.naviview.expanded=false
 target2.showInterface=false
 target2.type=ClassTarget
+<<<<<<< HEAD
 target2.width=80
 target2.x=320
 target2.y=60
@@ -84,6 +116,16 @@ target3.editor.height=728
 target3.editor.width=683
 target3.editor.x=0
 target3.editor.y=0
+=======
+target2.typeParameters=
+target2.width=130
+target2.x=440
+target2.y=230
+target3.editor.height=726
+target3.editor.width=1022
+target3.editor.x=1
+target3.editor.y=1
+>>>>>>> origin/master
 target3.height=50
 target3.name=Policecar
 target3.naviview.expanded=false
@@ -130,19 +172,32 @@ target6.x=620
 target6.y=370
 target7.editor.height=728
 target7.editor.width=683
+<<<<<<< HEAD
 target7.editor.x=314
 target7.editor.y=78
+=======
+target7.editor.x=0
+target7.editor.y=0
+>>>>>>> origin/master
 target7.height=50
 target7.name=Drive
 target7.naviview.expanded=false
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=80
+<<<<<<< HEAD
 target7.x=390
 target7.y=280
 target8.editor.height=767
 target8.editor.width=654
 target8.editor.x=-7
+=======
+target7.x=550
+target7.y=370
+target8.editor.height=728
+target8.editor.width=683
+target8.editor.x=0
+>>>>>>> origin/master
 target8.editor.y=0
 target8.height=50
 target8.name=Remote
@@ -150,11 +205,19 @@ target8.naviview.expanded=false
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=80
+<<<<<<< HEAD
 target8.x=710
 target8.y=180
 target9.editor.height=767
 target9.editor.width=654
 target9.editor.x=-7
+=======
+target8.x=220
+target8.y=230
+target9.editor.height=728
+target9.editor.width=683
+target9.editor.x=0
+>>>>>>> origin/master
 target9.editor.y=0
 target9.height=50
 target9.name=LED
