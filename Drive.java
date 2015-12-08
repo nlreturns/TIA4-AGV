@@ -8,6 +8,8 @@ public final class Drive{
     public Drive(int left, int right){
         
         motor = new Motor(left, right);
+        this.currentSpeedLeft = left;
+        this.currentSpeedRight = right;
         
     }
     
@@ -17,7 +19,7 @@ public final class Drive{
         currentSpeedRight = 1700;
         motor.setLeft(currentSpeedLeft);
         motor.setRight(currentSpeedRight);
-    
+        
     }
     
     public void backward(){
@@ -61,7 +63,6 @@ public final class Drive{
                 motor.setLeft(currentSpeedLeft);
                 motor.setRight(currentSpeedRight);
                 BoeBot.wait(10);
-                System.out.println(currentSpeedLeft + " " + currentSpeedRight);
             }
         }
         
@@ -104,39 +105,28 @@ public final class Drive{
         currentSpeedRight = 1700;
         motor.setLeft(1700);
         motor.setRight(1700);
-        
     }
     
     public void draaiL45(){
-        
         motor.setLeft (1550);
         motor.setRight (1550);
         BoeBot.wait (370);
         motor.setLeft (1500);
         motor.setRight (1500);
-<<<<<<< HEAD
-       
-=======
         
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
->>>>>>> origin/master
     }
     
     public void draaiL90(){
-        
         motor.setLeft (1550);
         motor.setRight (1550);
         BoeBot.wait (740);
         motor.setLeft (1500);
         motor.setRight (1500);
-<<<<<<< HEAD
-   
-=======
         
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
->>>>>>> origin/master
     }
     
     public void draaiL180(){
@@ -150,58 +140,48 @@ public final class Drive{
         BoeBot.wait (1480);
         motor.setLeft (1500);
         motor.setRight (1500);
-<<<<<<< HEAD
-=======
         
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
->>>>>>> origin/master
         
         BoeBot.rgbSet(2, 0,0,0);
         BoeBot.rgbSet(3, 0,0,0);
         BoeBot.rgbShow();
-        
     }
     
     public void draaiR45(){
-        
         motor.setLeft (1450);
         motor.setRight (1450);
         BoeBot.wait (370);
         motor.setLeft (1500);
         motor.setRight (1500);
         
-<<<<<<< HEAD
-=======
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
->>>>>>> origin/master
     }
     
     public void draaiR90(){
-        
         motor.setLeft (1450);
         motor.setRight (1450);
         BoeBot.wait (740);
         motor.setLeft (1500);
         motor.setRight (1500);
         
-<<<<<<< HEAD
-=======
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
->>>>>>> origin/master
     }
     
     public void draaiR180(){
+        
+        BoeBot.rgbSet(0, 0,0,255);
+        BoeBot.rgbSet(5, 0,0,255);
+        BoeBot.rgbShow();
     
         motor.setLeft (1450);
         motor.setRight (1450);
         BoeBot.wait (1480);
         motor.setLeft (1500);
         motor.setRight (1500);
-<<<<<<< HEAD
-=======
         
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
@@ -209,7 +189,6 @@ public final class Drive{
         BoeBot.rgbSet(0, 0,0,0);
         BoeBot.rgbSet(5, 0,0,0);
         BoeBot.rgbShow();
->>>>>>> origin/master
         
     }
 }
