@@ -8,8 +8,6 @@ public final class Drive{
     public Drive(int left, int right){
         
         motor = new Motor(left, right);
-        this.currentSpeedLeft = left;
-        this.currentSpeedRight = right;
         
     }
     
@@ -63,6 +61,7 @@ public final class Drive{
                 motor.setLeft(currentSpeedLeft);
                 motor.setRight(currentSpeedRight);
                 BoeBot.wait(10);
+                System.out.println(currentSpeedLeft + " " + currentSpeedRight);
             }
         }
         

@@ -30,11 +30,19 @@ package.editor.x=-8
 package.editor.y=-8
 =======
 objectbench.height=100
+<<<<<<< HEAD
+objectbench.width=1041
+package.editor.height=547
+package.editor.width=1248
+package.editor.x=-8
+package.editor.y=-8
+=======
 objectbench.width=683
 package.editor.height=529
 package.editor.width=890
 package.editor.x=0
 package.editor.y=2
+>>>>>>> origin/master
 >>>>>>> origin/master
 package.numDependencies=8
 package.numTargets=11
