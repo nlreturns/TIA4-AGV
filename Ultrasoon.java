@@ -29,7 +29,7 @@ public class Ultrasoon{
     public boolean tooClose(){
         int pulse = getPulse();
         
-        if(pulse <= 2300 && pulse >= 0){
+        if(pulse <= 2100 && pulse >= 0){
             BoeBot.rgbSet(0, 255,0,0);
             BoeBot.rgbSet(1, 255,0,0);
             BoeBot.rgbSet(2, 255,0,0);

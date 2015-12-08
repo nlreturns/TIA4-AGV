@@ -83,7 +83,7 @@ public class Demo1
                 //BoeBot.freqOut(boombox, 1000, 100);
                 //BoeBot.freqOut(boombox, 2000, 100);
                 
-                drive.draaiR90();
+                drive.draaiL90();
                 
             }
             if(collision.antenna.hitRight()){
@@ -93,7 +93,7 @@ public class Demo1
                 //BoeBot.freqOut(boombox, 1000, 100);
                 //BoeBot.freqOut(boombox, 2000, 100);
                 
-                drive.draaiL90();
+                drive.draaiR90();
                 
             }
             
