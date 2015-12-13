@@ -17,10 +17,10 @@ public class Bluetooth
         if(conn.available() > 0){
             int data = conn.readByte();
             conn.writeByte(data);
-            
+
             return data;
         }
-        
+
         return 0;
 
     }

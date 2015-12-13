@@ -4,12 +4,12 @@ public class Linedetection
 {
 
     static Motor motor;
-    
+
     public Linedetection()
     {
         motor = new Motor(14, 15);
     }
-    
+
     public static void lineRider()
     {
         if(BoeBot.analogRead(0) > 700){
@@ -25,7 +25,7 @@ public class Linedetection
             }
         }
     }
-    
+
     public static boolean detectCross()
     {
         if((BoeBot.analogRead(0) > 700) && (BoeBot.analogRead(0) > 700) && (BoeBot.analogRead(0) > 700)) {

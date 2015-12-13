@@ -9,14 +9,14 @@
 import TI.*;
 
 public class Antenna{
-    
+
     public int leftAntenna, rightAntenna;
-    
+
     public Antenna(int left, int right){
         this.leftAntenna = left;
         this.rightAntenna = right;
     }
-    
+
     /**
      * Function hitLeft()
      * 
@@ -30,13 +30,13 @@ public class Antenna{
             BoeBot.rgbShow();
             return true;
         }
-        
+
         BoeBot.rgbSet(0, 0,0,0);
         BoeBot.rgbSet(5, 0,0,0);
         BoeBot.rgbShow();
         return false;
     }
-    
+
     /**
      * Function hitRight()
      * 
@@ -50,11 +50,11 @@ public class Antenna{
             BoeBot.rgbShow();
             return true;
         }
-        
+
         BoeBot.rgbSet(2, 0,0,0);
         BoeBot.rgbSet(3, 0,0,0);
         BoeBot.rgbShow();
         return false;
     }
-    
+
 }
