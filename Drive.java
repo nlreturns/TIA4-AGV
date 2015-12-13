@@ -8,8 +8,6 @@ public final class Drive{
     public Drive(int left, int right){
         
         motor = new Motor(left, right);
-        this.currentSpeedLeft = left;
-        this.currentSpeedRight = right;
         
     }
     
