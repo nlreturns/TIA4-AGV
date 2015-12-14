@@ -12,24 +12,22 @@ public class Notification
     public void forward()
     {
         led.ledLF(Color.blue);
-        led.ledMF(Color.blue);
         led.ledRF(Color.blue);
     }
 
     public void backwards()
     {
-        led.ledLF(Color.blue);
-        led.ledMF(Color.blue);
-        led.ledRF(Color.blue);
+        led.ledLB(Color.blue);
+        led.ledRB(Color.blue);
     }
 
-    public void TurnLeft()
+    public void turnLeft()
     {
         led.ledLF(Color.blue);
         led.ledLB(Color.blue);
     }
 
-    public void TurnRight()
+    public void turnRight()
     {
         led.ledRB(Color.blue);
         led.ledRF(Color.blue);
@@ -37,22 +35,59 @@ public class Notification
 
     public void bounce()
     {
-        led.ledLF(Color.red);
-        led.ledMF(Color.red);
-        led.ledRF(Color.red);
+        led.ledLB(Color.red);
+        led.ledRB(Color.red);
     }
 
     public void detect()
     {
         led.ledLF(Color.red);
-        led.ledMF(Color.red);
         led.ledRF(Color.red);
     }
 
     public void reset()
     {
         led.ledLF(Color.black);
-        led.ledMF(Color.black);
         led.ledRF(Color.black);
+        led.ledLB(Color.black);
+        led.ledRB(Color.black);
+    }
+    
+    public void crossDetection()
+    {
+        led.ledLF(Color.yellow);
+        led.ledRF(Color.yellow);
+        led.ledLB(Color.yellow);
+        led.ledRB(Color.yellow);
+    }
+    
+    public void idleState()
+    {
+        led.ledMF(Color.white);
+        led.ledMB(Color.white);
+    }
+    
+    public void lineState()
+    {
+        led.ledMF(Color.blue);
+        led.ledMB(Color.blue);
+    }
+    
+    public void remoteState()
+    {
+        led.ledMF(Color.yellow);
+        led.ledMB(Color.yellow);
+    }
+    
+    public void bluetoothState()
+    {
+        led.ledMF(Color.green);
+        led.ledMB(Color.green);
+    }
+    
+    public void raceState()
+    {
+        led.ledMF(Color.red);
+        led.ledMB(Color.red);
     }
 }

@@ -3,25 +3,22 @@ import TI.*;
 public class Linedetection
 {
 
-    static Motor motor;
+    static Drive drive;
 
     public Linedetection()
     {
-        motor = new Motor(14, 15);
+        drive = new Drive(14, 15);
     }
 
     public static void lineRider()
     {
         if(BoeBot.analogRead(0) > 700){
-            motor.setLeft(1550);
-            motor.setRight(1550);
+            drive.rotateLeft(1550, 1550);
         } else {    
             if(BoeBot.analogRead(2) > 700){
-                motor.setLeft(1450);
-                motor.setRight(1450);
+                drive.rotateRight(1450, 1450);
             } else {
-                motor.setLeft(1450);
-                motor.setRight(1550);
+                drive.forward(1450, 1550);
             }
         }
     }

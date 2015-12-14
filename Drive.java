@@ -4,20 +4,36 @@ public final class Drive{
 
     static Motor motor;
     public int currentSpeedLeft = 1500, currentSpeedRight = 1500;
+    static Notification led;
 
     public Drive(int left, int right){
 
         motor = new Motor(left, right);
+        led = new Notification();
 
     }
 
-    public void forward(){
-
-        currentSpeedLeft = 1300;
-        currentSpeedRight = 1700;
+    public void forward(int speed1, int speed2){
+        currentSpeedLeft = speed1;
+        currentSpeedRight = speed2;
         motor.setLeft(currentSpeedLeft);
         motor.setRight(currentSpeedRight);
 
+    }
+    
+    public void rotateLeft(int speed1, int speed2){
+        currentSpeedLeft = speed1;
+        currentSpeedRight = speed2;
+        motor.setLeft(currentSpeedLeft);
+        motor.setRight(currentSpeedRight);
+        
+    }
+
+    public void rotateRight(int speed1, int speed2){
+        currentSpeedLeft = speed1;
+        currentSpeedRight = speed2;
+        motor.setLeft(currentSpeedLeft);
+        motor.setRight(currentSpeedRight);
     }
 
     public void backward(){
@@ -39,7 +55,8 @@ public final class Drive{
     }
 
     public void slowBackward(){
-
+        led.backward();
+        
         for(int i = 0; i < 50; i++) {
             if(currentSpeedLeft != 1300){
                 currentSpeedLeft--;
@@ -53,7 +70,8 @@ public final class Drive{
     }
 
     public void slowForward(){
-
+        led.forward();
+        
         for(int i = 0; i < 50; i++) {
             if(currentSpeedLeft != 1700){
                 currentSpeedLeft++;
@@ -88,24 +106,9 @@ public final class Drive{
 
     }
 
-    public void rotateLeft(){
-
-        currentSpeedLeft = 1200;
-        currentSpeedRight = 1200;
-        motor.setLeft(1200);
-        motor.setRight(1200);
-
-    }
-
-    public void rotateRight(){
-
-        currentSpeedLeft = 1700;
-        currentSpeedRight = 1700;
-        motor.setLeft(1700);
-        motor.setRight(1700);
-    }
-
     public void draaiL45(){
+        led.turnLeft();
+        
         motor.setLeft (1550);
         motor.setRight (1550);
         BoeBot.wait (370);
@@ -114,9 +117,13 @@ public final class Drive{
 
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
+        
+        led.reset();
     }
 
     public void draaiL90(){
+        led.turnLeft();
+        
         motor.setLeft (1550);
         motor.setRight (1550);
         BoeBot.wait (740);
@@ -125,13 +132,12 @@ public final class Drive{
 
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
+        
+        led.reset();
     }
 
     public void draaiL180(){
-
-        BoeBot.rgbSet(2, 0,0,255);
-        BoeBot.rgbSet(3, 0,0,255);
-        BoeBot.rgbShow();
+        led.turnLeft();
 
         motor.setLeft (1550);
         motor.setRight (1550);
@@ -141,13 +147,13 @@ public final class Drive{
 
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
-
-        BoeBot.rgbSet(2, 0,0,0);
-        BoeBot.rgbSet(3, 0,0,0);
-        BoeBot.rgbShow();
+        
+        led.reset();
     }
 
     public void draaiR45(){
+        led.turnRight();
+        
         motor.setLeft (1450);
         motor.setRight (1450);
         BoeBot.wait (370);
@@ -156,9 +162,13 @@ public final class Drive{
 
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
+        
+        led.reset();
     }
 
     public void draaiR90(){
+        led.turnRight();
+        
         motor.setLeft (1450);
         motor.setRight (1450);
         BoeBot.wait (740);
@@ -167,13 +177,12 @@ public final class Drive{
 
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
+        
+        led.reset();
     }
 
     public void draaiR180(){
-
-        BoeBot.rgbSet(0, 0,0,255);
-        BoeBot.rgbSet(5, 0,0,255);
-        BoeBot.rgbShow();
+        led.turnRight();
 
         motor.setLeft (1450);
         motor.setRight (1450);
@@ -184,9 +193,6 @@ public final class Drive{
         currentSpeedLeft = 1500;
         currentSpeedRight = 1500;
 
-        BoeBot.rgbSet(0, 0,0,0);
-        BoeBot.rgbSet(5, 0,0,0);
-        BoeBot.rgbShow();
-
+        led.reset();
     }
 }
