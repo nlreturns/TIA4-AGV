@@ -23,14 +23,14 @@ public class Notification
 
     public void turnLeft()
     {
+        led.ledRB(Color.blue);
         led.ledLF(Color.blue);
-        led.ledLB(Color.blue);
     }
 
     public void turnRight()
     {
-        led.ledRB(Color.blue);
         led.ledRF(Color.blue);
+        led.ledLB(Color.blue);
     }
 
     public void bounce()
@@ -69,8 +69,8 @@ public class Notification
     
     public void lineState()
     {
-        led.ledMF(Color.blue);
-        led.ledMB(Color.blue);
+        led.ledMF(Color.green);
+        led.ledMB(Color.green);
     }
     
     public void remoteState()
@@ -81,8 +81,8 @@ public class Notification
     
     public void bluetoothState()
     {
-        led.ledMF(Color.green);
-        led.ledMB(Color.green);
+        led.ledMF(Color.blue);
+        led.ledMB(Color.blue);
     }
     
     public void raceState()

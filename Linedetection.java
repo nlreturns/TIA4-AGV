@@ -18,13 +18,13 @@ public class Linedetection
         
         
         if(BoeBot.analogRead(0) > 700){
-           drive.rotateLeft(1495,1700);
+           drive.rotateLeft(1500,1700);
           
             //naar rechts
         }
         else{
             if (BoeBot.analogRead(2) > 700){
-                drive.rotateRight(1300,1505);
+                drive.rotateRight(1300,1500);
             }
             else{
                 if (BoeBot.analogRead(1)  > 700){

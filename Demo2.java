@@ -10,6 +10,9 @@ public class Demo2
     static int leftMotor = 14;
     static int rightMotor = 15;
     static int state = 1;
+    static int stateOld;
+    
+    static boolean driveLine = false;
 
     static Linedetection line = new Linedetection();
     static CollisionDetection collision = new CollisionDetection(ultrasoonInput, ultrasoonOutput, leftSensor, rightSensor);
@@ -19,41 +22,59 @@ public class Demo2
     static Notification led = new Notification();
 
     public static void main (String[] args){
-
-        int state = 1;
-
+        
         while(true){
-
-            //Check your current state and execute code
-            switch(state) {
-                case 1: idleState();
-                    break;
-
-                case 2: lineState();
-                    break;
-
-                case 3: remoteState();
-                    break;
-
-                case 4: raceState();
-                    break;
+        
+                    remote();        
+            
+                    //Check your current state and execute code
+                    if(state != stateOld) {
+                        drive.fastBrake();
+                        switch(state) {
+                            case 1: led.idleState();
+                                break;
+            
+                            case 2: led.lineState();
+                                break;
+            
+                            case 3: led.remoteState();
+                                break;
+            
+                            case 5: led.raceState();
+                                break;
+                        }
+                    }
                     
-                case 5: bluetoothState();
-                    break;
-            }
+                    switch(state) {
+                            case 1: idleState();
+                                break;
             
-            //If standing still, reset LEDs
-            if((drive.currentSpeedLeft == 1500) && (drive.currentSpeedRight == 1500)){
-                led.reset();
-            }
+                            case 2: lineState();
+                                break;
             
-            BoeBot.wait(1);
-
-        }
+                            case 3: remoteState();
+                                break;
+            
+                            case 4: raceState();
+                                break;
+                        }
+                    
+                    stateOld = state;
+                    
+                    //If standing still, reset LEDs
+                    if((drive.currentSpeedLeft == 1500) && (drive.currentSpeedRight == 1500)){
+                        led.reset();
+                    }
+                    
+                    BoeBot.wait(1);
+                    
+                }
     }
+
 
     public static void idleState(){
         led.idleState();
+        drive.fastBrake();
         remote();
     }
 
@@ -61,27 +82,31 @@ public class Demo2
         led.lineState();
         remote();
         
-        line.lineRider();
+        bluetoothCalls(bluetooth.getInput());
+        
+        if(driveLine)
+            line.lineRider();
 
         //Collision handeling
         if((collision.antenna.hitRight()) || (collision.antenna.hitLeft())){ 
             led.bounce();
             drive.stop();
+            BoeBot.wait(1000);
         }
         if(collision.ultrasoon.tooClose()){
             led.detect();
             drive.stop();
+            BoeBot.wait(1000);
         }
         
         //Cross detection
         if(line.detectCross()){
-            try{
-                drive.stop();
-                led.crossDetection();
-                Thread.sleep(2000); 
-            }catch(InterruptedException e){
-                System.out.println(e);
-            }
+            drive.fastBrake();
+            led.crossDetection();
+            BoeBot.wait(3000); 
+            led.reset();
+            drive.forward(1550, 1450);
+            BoeBot.wait(500);
         }
     }
 
@@ -95,10 +120,12 @@ public class Demo2
         if((collision.antenna.hitRight()) || (collision.antenna.hitLeft())){ 
             led.bounce();
             drive.stop();
+            BoeBot.wait(1000);
         }
         if(collision.ultrasoon.tooClose()){
             led.detect();
             drive.stop();
+            BoeBot.wait(1000);
         }
 
         if(knop != 0){
@@ -137,29 +164,10 @@ public class Demo2
         }
     }
 
-    public static void bluetoothState(){
-        remote();
-
-        bluetoothCalls(bluetooth.getInput());
-
-    }
-
     public static void bluetoothCalls(int data){
-        led.bluetoothState();
-        remote();
-        
-        //Collision handeling
-        if((collision.antenna.hitRight()) || (collision.antenna.hitLeft())){ 
-            led.bounce();
-            drive.stop();
-        }
-        if(collision.ultrasoon.tooClose()){
-            led.detect();
-            drive.stop();
-        }
-        
         switch(data){
-            case 32:    drive.stop();
+            case 32:    drive.fastBrake();
+                        driveLine = false;
                 break;
 
             case 97:    drive.rotateLeft(1450,1450);
@@ -173,6 +181,9 @@ public class Demo2
 
             case 119:   drive.slowForward();
                 break;
+                
+            case 120: driveLine = true;
+                break;
 
             default: break;
         }
@@ -185,24 +196,25 @@ public class Demo2
     }
     
     public static void remote(){
-        int knop = remote.getKnop();
-
-        switch(knop) {
+            int knop = remote.getKnop();
+          
+            switch(knop) {
             // Rood
             case 824: state = 4;
                 break;
             // Geel
-            case 848: state = 3;
+            case 1848: state = 3;
                 break;
             // Blauw
-            case 3896: state = 2;
-                break;
+            //case 3896: state = 5;
+              //  break;
             // Grijs
             case 4048: state = 1;
                 break;
             // Groen
-            case 2872: state = 5;
+            case 2872: state = 2;
                 break;
         }
+        
     }
 }

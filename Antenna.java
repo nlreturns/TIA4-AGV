@@ -25,15 +25,8 @@ public class Antenna{
      */
     public boolean hitLeft(){
         if(BoeBot.digitalRead(leftAntenna) == false){
-            BoeBot.rgbSet(0, 255,0,0);
-            BoeBot.rgbSet(5, 255,0,0);
-            BoeBot.rgbShow();
             return true;
         }
-
-        BoeBot.rgbSet(0, 0,0,0);
-        BoeBot.rgbSet(5, 0,0,0);
-        BoeBot.rgbShow();
         return false;
     }
 
@@ -45,15 +38,8 @@ public class Antenna{
      */
     public boolean hitRight(){
         if(BoeBot.digitalRead(rightAntenna) == false){
-            BoeBot.rgbSet(2, 255,0,0);
-            BoeBot.rgbSet(3, 255,0,0);
-            BoeBot.rgbShow();
             return true;
         }
-
-        BoeBot.rgbSet(2, 0,0,0);
-        BoeBot.rgbSet(3, 0,0,0);
-        BoeBot.rgbShow();
         return false;
     }
 
