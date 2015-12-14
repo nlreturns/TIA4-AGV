@@ -43,7 +43,7 @@ public class Demo2
             }
             
             //If standing still, reset LEDs
-            if((drive.currentspeedLeft == 1500) && (drive.currentspeedRight == 1500)){
+            if((drive.currentSpeedLeft == 1500) && (drive.currentSpeedRight == 1500)){
                 led.reset();
             }
             
@@ -137,14 +137,14 @@ public class Demo2
         }
     }
 
-    public void bluetoothState(){
+    public static void bluetoothState(){
         remote();
 
         bluetoothCalls(bluetooth.getInput());
 
     }
 
-    public void bluetoothCalls(int data){
+    public static void bluetoothCalls(int data){
         led.bluetoothState();
         remote();
         
@@ -162,10 +162,10 @@ public class Demo2
             case 32:    drive.stop();
                 break;
 
-            case 97:    drive.rotateLeft();
+            case 97:    drive.rotateLeft(1450,1450);
                 break;
 
-            case 100:   drive.rotateRight();
+            case 100:   drive.rotateRight(1550,1550);
                 break;
 
             case 115:   drive.slowBackward();
@@ -184,7 +184,7 @@ public class Demo2
         remote();
     }
     
-    public static int remote(){
+    public static void remote(){
         int knop = remote.getKnop();
 
         switch(knop) {

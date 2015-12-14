@@ -29,7 +29,7 @@ public class LED
 
     }
 
-    public void ledLM(Color c){
+    public void ledMB(Color c){
         BoeBot.rgbSet(3, c);
         BoeBot.rgbShow();
 
@@ -40,4 +40,6 @@ public class LED
         BoeBot.rgbShow();
 
     }
+
+    
 }
