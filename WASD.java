@@ -12,7 +12,7 @@ public class WASD extends JFrame{
 
         try
         {
-            CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier("COM4");
+            CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier("COM3");
             CommPort commPort = portIdentifier.open(this.getClass().getName(),2000);
             SerialPort serialPort = (SerialPort) commPort;
             serialPort.setSerialPortParams(115200,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
