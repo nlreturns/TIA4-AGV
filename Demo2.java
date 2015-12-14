@@ -91,12 +91,12 @@ public class Demo2
         if((collision.antenna.hitRight()) || (collision.antenna.hitLeft())){ 
             led.bounce();
             drive.stop();
-            BoeBot.wait(1000);
+            state = 1;
         }
         if(collision.ultrasoon.tooClose()){
             led.detect();
             drive.stop();
-            BoeBot.wait(1000);
+            state = 1;
         }
         
         //Cross detection
@@ -106,7 +106,8 @@ public class Demo2
             BoeBot.wait(3000); 
             led.reset();
             drive.forward(1550, 1450);
-            BoeBot.wait(500);
+            BoeBot.wait(200);
+            drive.forward(1500, 1500);
         }
     }
 
@@ -119,13 +120,11 @@ public class Demo2
         //Collision handeling
         if((collision.antenna.hitRight()) || (collision.antenna.hitLeft())){ 
             led.bounce();
-            drive.stop();
-            BoeBot.wait(1000);
+            drive.fastBreak();
         }
         if(collision.ultrasoon.tooClose()){
             led.detect();
             drive.stop();
-            BoeBot.wait(1000);
         }
 
         if(knop != 0){
