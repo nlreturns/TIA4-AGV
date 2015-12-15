@@ -12,7 +12,7 @@ public class WASD extends JFrame{
 
         try
         {
-            CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier("COM4");
+            CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier("COM3");
             CommPort commPort = portIdentifier.open(this.getClass().getName(),2000);
             SerialPort serialPort = (SerialPort) commPort;
             serialPort.setSerialPortParams(115200,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
@@ -28,51 +28,57 @@ public class WASD extends JFrame{
                     public void actionPerformed(ActionEvent e) { System.exit(0); }
                 });
             menu.add(close);
-
+            
+            GridLayout layout = new GridLayout(2, 3);
+            
+            setLayout(layout);
+            
             /* -- Pane -- */
-            Container contentPane = getContentPane();
+            //Container contentPane = getContentPane();
 
             /* -- Buttons -- */
-            JButton w = new JButton("W");
+            JButton w = new JButton("");
             w.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){ write('w', out); };
                 });
-            JButton a = new JButton("A");
+            JButton a = new JButton("");
             a.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){ write('a', out); };
                 });
-            JButton s = new JButton("S");
+            JButton s = new JButton("");
             s.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){ write('s', out); };
                 });
-            JButton d = new JButton("D");
+            JButton d = new JButton("");
             d.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){ write('d', out); };
                 });
-            JButton stop = new JButton("Stop");
+            JButton stop = new JButton("");
             stop.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){ write(' ', out); };
                 });
+                
+            JButton start = new JButton("");
+            start.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){ write('x', out); };
+            });
 
-            contentPane.add(w);
-            contentPane.add(a);
-            contentPane.add(s);
-            contentPane.add(d);
-            contentPane.add(stop);
-
-            /* -- Set Bounds -- */
-            w.setBounds(70, 10, 60, 60);
-            a.setBounds(10,70, 60, 60);
-            stop.setBounds(70,70, 60, 60);
-            s.setBounds(70,130, 60, 60);
-            d.setBounds(130,70, 60, 60);
-
-            JLabel label = new JLabel("Test");
-
-            contentPane.add(label);
-
-            label.setBounds(100, 100, 50, 50);
-
+            /* pimp modus */
+            start.setIcon(new ImageIcon("start.jpeg"));
+            w.setIcon(new ImageIcon("test.png"));
+            stop.setIcon(new ImageIcon("stop.png"));
+            a.setIcon(new ImageIcon("left.png"));
+            d.setIcon(new ImageIcon("right.png"));
+            s.setIcon(new ImageIcon("s.png"));
+            
+            /* add buttons to gui */
+            add(start);    
+            add(w);
+            add(stop);
+            add(a);
+            add(s);
+            add(d);
+            
             /* -- End -- */
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             pack();

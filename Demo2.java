@@ -105,7 +105,7 @@ public class Demo2
             led.crossDetection();
             BoeBot.wait(3000); 
             led.reset();
-            drive.forward(1550, 1450);
+            drive.forward(1450, 1550);
             BoeBot.wait(200);
             drive.forward(1500, 1500);
         }
@@ -120,7 +120,7 @@ public class Demo2
         //Collision handeling
         if((collision.antenna.hitRight()) || (collision.antenna.hitLeft())){ 
             led.bounce();
-            drive.fastBreak();
+            drive.fastBrake();
         }
         if(collision.ultrasoon.tooClose()){
             led.detect();
