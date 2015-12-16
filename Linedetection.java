@@ -16,7 +16,6 @@ public class Linedetection
     public static void lineRider()
     {       
         
-        
         if(BoeBot.analogRead(0) > 700){
            drive.rotateLeft(1500,1700);
           
@@ -33,6 +32,26 @@ public class Linedetection
                 }
                 else  {
                   drive.rotateLeft(1400, 1600);
+                }
+            }
+        }
+        
+    }
+    
+    public static void raceLineRider()
+    {       
+        
+        if(BoeBot.analogRead(0) > 700){
+           drive.rotateLeft(1500,1700);
+          
+            //naar rechts
+        }else{
+            if (BoeBot.analogRead(2) > 700){
+                drive.rotateRight(1300,1500);
+            }
+            else{
+                if (BoeBot.analogRead(1)  > 700){
+                 drive.forward(1300, 1700);
                 }
             }
         }

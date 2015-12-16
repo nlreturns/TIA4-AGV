@@ -190,8 +190,19 @@ public class Demo2
     }
 
     public static void raceState(){
+        boolean racen = false;
+        
         led.raceState();
         remote();
+        
+        if(remote.getKnop() == 144)
+            race = true;
+            
+        if(remote.getKnop() == 2192)
+            race = false;
+        
+        if(racen)
+            line.raceLineRider();
     }
     
     public static void remote(){
