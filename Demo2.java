@@ -196,10 +196,10 @@ public class Demo2
         remote();
         
         if(remote.getKnop() == 144)
-            race = true;
+            racen = true;
             
         if(remote.getKnop() == 2192)
-            race = false;
+            racen = false;
         
         if(racen)
             line.raceLineRider();
