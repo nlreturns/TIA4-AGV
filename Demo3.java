@@ -1,4 +1,5 @@
-//import TI.*;
+import TI.*;
+import java.util.*;
 
 public class Demo3
 {
@@ -21,10 +22,11 @@ public class Demo3
     static Remote remote = new Remote(infrared);
     static Bluetooth bluetooth = new Bluetooth();
     static Notification led = new Notification();
+    
+    static ArrayList<Integer> route = new ArrayList<Integer>();
 
     public static void main (String[] args){
         
-        ArrayList<int> route = new ArrayList<int>();
         
         while(true){
         
@@ -169,43 +171,54 @@ public class Demo3
     public static void bluetoothCalls(int data){
 
         switch(data){
+                // space
             case 32:    drive.fastBrake();
                         driveLine = false;
                 break;
 
+                // a
             case 97:    drive.rotateLeft(1450,1450);
                 break;
 
+                // d
             case 100:   drive.rotateRight(1550,1550);
                 break;
 
+                // s
             case 115:   drive.slowBackward();
                 break;
 
+                // w
             case 119:   drive.slowForward();
                 break;
-                
+            
+                // x
             case 120: driveLine = true;
                 break;
                 
-            case links: route.add(links);
+                // y vooruit
+            case 121: route.add(121);
                 break;
                 
-            case rechtdoor: route.add(rechtdoor);
+                // z rechts
+            case 122: route.add(122);
                 break;
                 
-            case rechts: route.add(rechts);
+                // { links
+            case 123: route.add(12);
                 break;
                 
-            case remove: 
+                // | stop
+            case 124: 
                     for(int i = 0; i < route.size(); i++){
-                        route.set(i) = 0;
+                        route.set(i, 0);
                     }
                 break;
                 
-            case start: 
+                // } start
+            case 125: 
                     if(route.get(0) != 0){
-                        for(int x = 0; i < route.size(); x++){
+                        for(int x = 0; x < route.size(); x++){
                             while(!line.detectCross()){
                                 line.lineRider();
                                 if(collision.ultrasoon.tooClose()){
