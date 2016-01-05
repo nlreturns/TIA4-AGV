@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -35,11 +34,9 @@ public class WASD extends JFrame{
             /* Action list layout <left screen> */
             JPanel list = new JPanel();
             
-            list.setLayout(new FlowLayout());
+            //list.setLayout(new FlowLayout());
 
             ArrayList<String> route = new ArrayList<String>();
-            
-            route.add("Test");
             
             final AbstractListModel<String> model = new AbstractListModel<String>(){
                 public String getElementAt(int index){
@@ -57,7 +54,7 @@ public class WASD extends JFrame{
             /* Route buttons <middle screen> */
             JPanel routeButtons = new JPanel();
 
-            routeButtons.setLayout(new GridLayout(3,1));
+            routeButtons.setLayout(new GridLayout(5,1));
 
             /* WASD layout <right screen> */
             JPanel WASD = new JPanel();
@@ -102,10 +99,26 @@ public class WASD extends JFrame{
                     public void actionPerformed(ActionEvent e){ write('x', out); };
                 });
 
+            JButton startRoute = new JButton("Start");
+            startRoute.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        write('}', out);
+                    };
+            });
+            
+            JButton deleteRoute = new JButton("Verwijder");
+            deleteRoute.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        // delete the thang;
+                    };
+            });
+                
             JButton go = new JButton("Ga door");
             go.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
                         route.add("Vooruit");
+                        
+                        write(FOREWARD, out);
                         
                         for(ListDataListener p : model.getListDataListeners())
                             p.contentsChanged(null);
@@ -115,6 +128,9 @@ public class WASD extends JFrame{
             left.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
                         route.add("Links");
+                        
+                        write(Config.LEFT, out);
+                        
                         for(ListDataListener p : model.getListDataListeners())
                             p.contentsChanged(null);
                     };
@@ -123,6 +139,9 @@ public class WASD extends JFrame{
             right.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){ 
                         route.add("Rechts"); 
+                        
+                        write(Config.RIGHT, out);
+                        
                         for(ListDataListener p : model.getListDataListeners())
                             p.contentsChanged(null);
                     };
@@ -144,9 +163,11 @@ public class WASD extends JFrame{
             WASD.add(s);
             WASD.add(d);
 
+            routeButtons.add(startRoute);
             routeButtons.add(go);
             routeButtons.add(left);
             routeButtons.add(right);
+            routeButtons.add(deleteRoute);
 
             /* -- End -- */
             setDefaultCloseOperation(EXIT_ON_CLOSE);
