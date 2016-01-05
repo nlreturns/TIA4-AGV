@@ -126,7 +126,7 @@ public final class Drive{
         
         motor.setLeft (1550);
         motor.setRight (1550);
-        BoeBot.wait (740);
+        BoeBot.wait (500);
         motor.setLeft (1500);
         motor.setRight (1500);
 
@@ -171,7 +171,7 @@ public final class Drive{
         
         motor.setLeft (1450);
         motor.setRight (1450);
-        BoeBot.wait (740);
+        BoeBot.wait (500);
         motor.setLeft (1500);
         motor.setRight (1500);
 

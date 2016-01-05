@@ -1,6 +1,6 @@
-import TI.*;
+//import TI.*;
 
-public class Demo2
+public class Demo3
 {
     static int ultrasoonInput = 6;
     static int ultrasoonOutput = 7;
@@ -11,6 +11,7 @@ public class Demo2
     static int rightMotor = 15;
     static int state = 1;
     static int stateOld;
+    static int links = 1, rechtdoor = 2, rechts = 3;
     
     static boolean driveLine = false;
 
@@ -22,6 +23,8 @@ public class Demo2
     static Notification led = new Notification();
 
     public static void main (String[] args){
+        
+        ArrayList<int> route = new ArrayList<int>();
         
         while(true){
         
@@ -164,6 +167,7 @@ public class Demo2
     }
 
     public static void bluetoothCalls(int data){
+
         switch(data){
             case 32:    drive.fastBrake();
                         driveLine = false;
@@ -182,6 +186,43 @@ public class Demo2
                 break;
                 
             case 120: driveLine = true;
+                break;
+                
+            case links: route.add(links);
+                break;
+                
+            case rechtdoor: route.add(rechtdoor);
+                break;
+                
+            case rechts: route.add(rechts);
+                break;
+                
+            case remove: 
+                    for(int i = 0; i < route.size(); i++){
+                        route.set(i) = 0;
+                    }
+                break;
+                
+            case start: 
+                    if(route.get(0) != 0){
+                        for(int x = 0; i < route.size(); x++){
+                            while(!line.detectCross()){
+                                line.lineRider();
+                                if(collision.ultrasoon.tooClose()){
+                                    drive.draaiL180();
+                                    break;
+                                }
+                            }
+                            if(route.get(x) == links)
+                                drive.draaiL90();
+                            if(route.get(x) == rechts)
+                                drive.draaiR90();   
+                            if(route.get(x) == rechtdoor){
+                                line.lineRider();
+                                BoeBot.wait(500);
+                            }
+                        }   
+                    }
                 break;
 
             default: break;
