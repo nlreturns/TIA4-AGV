@@ -2,8 +2,10 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.*;
 import gnu.io.*;
 import java.io.*;
+import java.util.*;
 
 public class WASD extends JFrame{
     public WASD(){
@@ -12,7 +14,7 @@ public class WASD extends JFrame{
 
         try
         {
-            CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier("COM3");
+            CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier("COM4");
             CommPort commPort = portIdentifier.open(this.getClass().getName(),2000);
             SerialPort serialPort = (SerialPort) commPort;
             serialPort.setSerialPortParams(115200,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
@@ -28,11 +30,48 @@ public class WASD extends JFrame{
                     public void actionPerformed(ActionEvent e) { System.exit(0); }
                 });
             menu.add(close);
+
+            // create all layouts
+            /* Action list layout <left screen> */
+            JPanel list = new JPanel();
             
-            GridLayout layout = new GridLayout(2, 3);
+            list.setLayout(new FlowLayout());
+
+            ArrayList<String> route = new ArrayList<String>();
             
+            route.add("Test");
+            
+            final AbstractListModel<String> model = new AbstractListModel<String>(){
+                public String getElementAt(int index){
+                    return route.get(index);
+                }
+                public int getSize(){
+                    return route.size();
+                }
+            };
+            
+            final JList<String> commandList = new JList<String>(model);
+            
+            list.add(new JScrollPane(commandList));
+
+            /* Route buttons <middle screen> */
+            JPanel routeButtons = new JPanel();
+
+            routeButtons.setLayout(new GridLayout(3,1));
+
+            /* WASD layout <right screen> */
+            JPanel WASD = new JPanel();
+            WASD.setLayout(new GridLayout(2,3));
+
+            // set main layout
+            GridLayout layout = new GridLayout(1, 3);
             setLayout(layout);
-            
+
+            // Add layouts to main layout
+            add(list);
+            add(routeButtons);
+            add(WASD);
+
             /* -- Pane -- */
             //Container contentPane = getContentPane();
 
@@ -57,11 +96,37 @@ public class WASD extends JFrame{
             stop.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){ write(' ', out); };
                 });
-                
+
             JButton start = new JButton("");
             start.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent e){ write('x', out); };
-            });
+                    public void actionPerformed(ActionEvent e){ write('x', out); };
+                });
+
+            JButton go = new JButton("Ga door");
+            go.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        route.add("Vooruit");
+                        
+                        for(ListDataListener p : model.getListDataListeners())
+                            p.contentsChanged(null);
+                    };
+                });
+            JButton left = new JButton("Ga links");
+            left.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        route.add("Links");
+                        for(ListDataListener p : model.getListDataListeners())
+                            p.contentsChanged(null);
+                    };
+                });
+            JButton right = new JButton("Ga rechts");
+            right.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){ 
+                        route.add("Rechts"); 
+                        for(ListDataListener p : model.getListDataListeners())
+                            p.contentsChanged(null);
+                    };
+                });
 
             /* pimp modus */
             start.setIcon(new ImageIcon("start.jpeg"));
@@ -70,19 +135,23 @@ public class WASD extends JFrame{
             a.setIcon(new ImageIcon("left.png"));
             d.setIcon(new ImageIcon("right.png"));
             s.setIcon(new ImageIcon("s.png"));
-            
+
             /* add buttons to gui */
-            add(start);    
-            add(w);
-            add(stop);
-            add(a);
-            add(s);
-            add(d);
-            
+            WASD.add(start);    
+            WASD.add(w);
+            WASD.add(stop);
+            WASD.add(a);
+            WASD.add(s);
+            WASD.add(d);
+
+            routeButtons.add(go);
+            routeButtons.add(left);
+            routeButtons.add(right);
+
             /* -- End -- */
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             pack();
-            setSize(500,500);
+            setSize(1000,500);
             setLocationRelativeTo(null);
             setVisible(true);
 
